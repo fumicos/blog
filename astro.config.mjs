@@ -15,7 +15,7 @@ import node from "@astrojs/node";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://fumicoswork.netlify.app",
+  site: "https://fumicos.work",
   experimental: {
     integrations: true
   },

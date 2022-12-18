@@ -5,12 +5,14 @@ import tailwind from "@astrojs/tailwind";
 import compress from "astro-compress";
 import robotsTxt from 'astro-robots-txt';
 import webmanifest from 'astro-webmanifest';
-
 import vue from "@astrojs/vue";
 
 // https://astro.build/config
+import netlify from "@astrojs/netlify/functions";
+
+// https://astro.build/config
 export default defineConfig({
-  site: "https://sunny-arithmetic-1e866e.netlify.app",
+  site: "https://fumicos.work",
   experimental: {
     integrations: true
   },
@@ -41,5 +43,7 @@ export default defineConfig({
     ssr: {
       external: ["svgo"]
     }
-  }
+  },
+  output: "server",
+  adapter: netlify()
 });

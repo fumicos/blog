@@ -12,7 +12,7 @@ import netlify from "@astrojs/netlify/functions";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://sunny-arithmetic-1e866e.netlify.app",
+  site: "https://fumicoswork.netlify.app",
   experimental: {
     integrations: true
   },

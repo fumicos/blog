@@ -11,6 +11,9 @@ import vue from "@astrojs/vue";
 import netlify from "@astrojs/netlify/functions";
 
 // https://astro.build/config
+import node from "@astrojs/node";
+
+// https://astro.build/config
 export default defineConfig({
   site: "https://fumicoswork.netlify.app",
   experimental: {
@@ -30,11 +33,11 @@ export default defineConfig({
       crawlDelay: 2
     }]
   }), webmanifest({
-    name: 'awesome blog',
+    name: 'fumicos',
     icon: './public/favicon.svg',
     lang: 'en-US',
-    short_name: 'awesome',
-    description: "This is the description about your awesome blog",
+    short_name: 'fumicos',
+    description: "This is fumicos.",
     theme_color: '#ef4444',
     background_color: '#ef4444',
     display: 'standalone'
@@ -45,5 +48,7 @@ export default defineConfig({
     }
   },
   output: "server",
-  adapter: netlify()
+  adapter: node({
+    mode: 'standalone'
+  })
 });

@@ -1,0 +1,126 @@
+---
+import "@fontsource/sawarabi-gothic";
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import TagsFilter from "../components/TagsFilter.astro";
+
+export interface Props {
+	content: {
+		title: string;
+		description: string;
+		pubDate?: string;
+		updatedDate?: string;
+		minutes?: string;
+		tags?: string[];
+	};
+}
+
+const {
+	content: { title, description, pubDate, updatedDate, minutes, tags = [] },
+} = Astro.props as Props;
+---
+
+<html>
+	<head>
+		<BaseHead title={title} description={description} />
+		<style is:global>
+			.title {
+				font-size: 2em;
+				margin: 0.25em 0 0;
+			}
+  .markdown-body ul {
+    @apply list-disc list-inside pl-4 mb-4
+  }
+  .markdown-body ol {
+    @apply list-decimal list-inside pl-4 mb-4
+  }
+  .markdown-body h1, h2, h3 {
+    @apply font-bold mb-4 dark:text-white
+  }
+  .markdown-body h1, h2 {
+    @apply border-b-2 border-solid border-gray-200 
+  }
+  .markdown-body h1 {
+    @apply text-3xl pb-2
+  }
+  .markdown-body h2 {
+    @apply text-2xl
+  }
+  .markdown-body h3 {
+    @apply text-lg
+  }
+  .markdown-body p {
+    @apply mb-4 dark:text-white
+  }
+	.markdown-body table {
+		@apply border-collapse border border-slate-400
+	}
+	.markdown-body thead {
+		@apply bg-slate-50 dark:bg-slate-700
+	}
+	.markdown-body th {
+		@apply border border-slate-300 p-2
+	}
+	.markdown-body td {
+		@apply border border-slate-300 dark:border-slate-700 p-2 dark:text-white
+	}
+	.markdown-body code {
+		@apply dark:text-black rounded
+	}
+	.markdown-body blockquote {
+		@apply dark:text-black rounded pt-4
+	}
+	.markdown-body kbd > kbd {
+		@apply bg-slate-50 dark:bg-slate-700 rounded px-2 py-1.5 dark:text-black
+	}
+	.markdown-body hr {
+		@apply my-8 h-px
+	}
+  </style>
+	</head>
+
+	<body class="markdown-body bg-white dark:bg-black text-black dark:text-white">
+		<Header />
+		<main>
+			<article>
+				<h1 class="title dark:text-white">{title}</h1>
+
+				<TagsFilter tags={tags} />
+
+				<div>
+					<div class="flex flex-row">
+						<div class="basis-1/2 text-left">
+							{
+								minutes && (
+									<span class="text-sm">
+										{minutes} minutes
+									</span>
+								)
+							}
+						</div>
+						<div class="basis-1/2 text-right">
+							{
+								pubDate && (
+									<time class="italic text-sm">
+										{pubDate}
+									</time>
+								)
+							}
+						</div>
+					</div>
+					{
+						updatedDate && (
+							<div class="italic text-sm text-right">
+								Last updated on <time>{updatedDate}</time>
+							</div>
+						)
+					}
+				</div>
+				<hr class="border-t-black mb-3 mt-3" />
+				<slot />
+			</article>
+		</main>
+		<Footer />
+	</body>
+</html>

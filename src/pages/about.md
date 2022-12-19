@@ -1,7 +1,7 @@
 ---
 layout: "../layouts/BlogPost.astro"
 title: "About"
-description: "fumicosについて"
+description: "What I am."
 updatedDate: "December 18 2022"
 age: 1111
 ---

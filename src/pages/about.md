@@ -1,9 +1,0 @@
----
-layout: "../layouts/BlogPost.astro"
-title: "About"
-description: "What I am."
-updatedDate: "December 18 2022"
-age: 1111
----
-
-東京でフリーランスのフロントエンドエンジニアとして活動しています。

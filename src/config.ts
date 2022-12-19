@@ -3,5 +3,5 @@
 
 export const SITE_TITLE = "fumicos";
 export const SITE_SUB_TITLE = "Welcome to fumicos blog!";
-export const SITE_DESCRIPTION = "Welcome to fumicos blog!";
+export const SITE_DESCRIPTION = "Welcome to fumicos\' blog!";
 export const SITE_URL = "https://fumicos.work";

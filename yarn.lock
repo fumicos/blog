@@ -119,6 +119,14 @@
     "@astrojs/webapi" "^1.1.1"
     "send" "^0.18.0"
 
+"@astrojs/partytown@^1.0.2":
+  "integrity" "sha512-+pUjLxdp0SYqUO+X+FjFN95KxK7w4Rs5gIMQ7scKUWd2073D3/5hTlij9qNmX5Bk/tFHUfTivKIZ5p233Lpa9Q=="
+  "resolved" "https://registry.npmjs.org/@astrojs/partytown/-/partytown-1.0.2.tgz"
+  "version" "1.0.2"
+  dependencies:
+    "@builder.io/partytown" "^0.7.1"
+    "mrmime" "^1.0.0"
+
 "@astrojs/prism@^1.0.0", "@astrojs/prism@^1.0.1":
   "integrity" "sha512-HxEFslvbv+cfOs51q/C7aMVFuW3EAGg0d1xXU/0e/QeScDzfrp5Ra4SOb8mV082SgENVjtVvet4zR84t3at4VQ=="
   "resolved" "https://registry.npmjs.org/@astrojs/prism/-/prism-1.0.1.tgz"
@@ -445,6 +453,11 @@
     "@babel/helper-string-parser" "^7.19.4"
     "@babel/helper-validator-identifier" "^7.19.1"
     "to-fast-properties" "^2.0.0"
+
+"@builder.io/partytown@^0.7.1":
+  "integrity" "sha512-hA6WYBFD/exyrEvs0JSvQIILfH0/Jlr5amqE3lt1nPehCus+eQm4ob3LBMRkSaFDWz9clHSLtsGwG52dUjGy3g=="
+  "resolved" "https://registry.npmjs.org/@builder.io/partytown/-/partytown-0.7.3.tgz"
+  "version" "0.7.3"
 
 "@emmetio/abbreviation@^2.2.3":
   "integrity" "sha512-87pltuCPt99aL+y9xS6GPZ+Wmmyhll2WXH73gG/xpGcQ84DRnptBsI2r0BeIQ0EB/SQTOe2ANPqFqj3Rj5FOGA=="

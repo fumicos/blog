@@ -11,7 +11,15 @@ export interface Props {
 
 const { title, description, image = "/placeholder-social.jpg" } = Astro.props;
 ---
+<!-- Google tag (gtag.js) -->
+<script async type="text/partytown" src="https://www.googletagmanager.com/gtag/js?id=G-3WB1WH7ZZP"></script>
+<script type="text/partytown">
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
+  gtag('config', 'G-3WB1WH7ZZP');
+</script>
 <!-- Global Metadata -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />

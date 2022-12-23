@@ -12,6 +12,8 @@ import netlify from "@astrojs/netlify/functions";
 
 // https://astro.build/config
 import node from "@astrojs/node";
+import partytown from "@astrojs/partytown";
+
 
 // https://astro.build/config
 export default defineConfig({
@@ -41,6 +43,11 @@ export default defineConfig({
     theme_color: '#ef4444',
     background_color: '#ef4444',
     display: 'standalone'
+  }), partytown({
+    // Adds dataLayer.push as a forwarding-event.
+    config: {
+      forward: ["dataLayer.push"],
+    },
   }), vue()],
   vite: {
     ssr: {

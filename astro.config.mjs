@@ -9,7 +9,7 @@ export default defineConfig({
   integrations: [
     mdx(),
     tailwind({ applyBaseStyles: true }),
-    // icon(),                   // 使うなら有効化（import も外す）
+    icon(),                   // 使うなら有効化（import も外す）
   ],
 })
 

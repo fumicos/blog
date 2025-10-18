@@ -1,0 +1,19 @@
+---
+import { getPosts, getPostBySlug } from '../lib/microcms';
+
+export async function getStaticPaths() {
+  const { contents, totalCount } = await getPosts(100, 0);
+  // （大量の記事がある場合は offset でループを回す）
+  return contents.map((p: any) => ({ params: { slug: p.slug }, props: { post: p } }));
+}
+
+const { post } = Astro.props;
+if (!post) throw Astro.redirect('/404');
+---
+<html lang="ja">
+  <head><meta charset="utf-8" /><title>{post.title}</title></head>
+  <body class="prose mx-auto px-4">
+    <h1 class="mt-10">{post.title}</h1>
+    <article class="mt-6" set:html={post.body} />
+  </body>
+</html>

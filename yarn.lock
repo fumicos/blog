@@ -496,6 +496,27 @@
   resolved "https://registry.npmjs.org/@fontsource/sawarabi-gothic/-/sawarabi-gothic-4.5.9.tgz"
   integrity sha512-LsXeDwLnaZ1b8O/GmX2Vlb52n70k/qE0kI5aCc7d9lTCCuV1MrBOnJIsnB8DOHsdkdJIogIjcZvBrhLEc6KOFA==
 
+"@iconify-json/fa-brands@^1.2.2":
+  version "1.2.2"
+  resolved "https://registry.npmjs.org/@iconify-json/fa-brands/-/fa-brands-1.2.2.tgz"
+  integrity sha512-Aze0j7l95gmOLdeC4L+8MvvpN3+QmAVk9IuTJN170zYH5I7jS0jGSIMFsf0KE8vGbG8jPpXkmmDq7qQU8Rymnw==
+  dependencies:
+    "@iconify/types" "*"
+
+"@iconify-json/fa-regular@^1.2.2":
+  version "1.2.2"
+  resolved "https://registry.npmjs.org/@iconify-json/fa-regular/-/fa-regular-1.2.2.tgz"
+  integrity sha512-OxxofoXzGCJ2lZcQAuNRTySdrc25k/x/wG8+uoVWx/k/xyuJmP2D/Fm2JJt8g2l7iZRmo6axbpUWnhkAeW/YXg==
+  dependencies:
+    "@iconify/types" "*"
+
+"@iconify-json/fa-solid@^1.2.2":
+  version "1.2.2"
+  resolved "https://registry.npmjs.org/@iconify-json/fa-solid/-/fa-solid-1.2.2.tgz"
+  integrity sha512-V8TDk62dGswAwbWwoSTnaoiTVEfQyjLCq4/TPmI29evFb9GwPyU0OGX4+BdQMGsDDzk8ByR81RjR618FtELSaw==
+  dependencies:
+    "@iconify/types" "*"
+
 "@iconify-json/tabler@^1.2.23":
   version "1.2.23"
   resolved "https://registry.npmjs.org/@iconify-json/tabler/-/tabler-1.2.23.tgz"

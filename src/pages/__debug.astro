@@ -1,16 +1,23 @@
 ---
-// src/pages/__debug.astro
 import { getPosts } from '../lib/microcms';
 
-const { contents = [] } = await getPosts(100, 0);
-const items = contents.map(p => ({ slug: (p.slug ?? p.id).toLowerCase(), title: p.title ?? (p.slug ?? p.id) }));
+let contents = [];
+try {
+  const res = await getPosts(100, 0); // build時に実行
+  contents = res?.contents ?? [];
+} catch (e) {
+  console.error('[__debug] fetch failed', e);
+  contents = [];
+}
 ---
 <html lang="ja">
-  <head><meta charset="utf-8" /><title>Debug Index</title></head>
   <body class="prose mx-auto p-6">
     <h1>Generated Slugs</h1>
     <ul>
-      {items.map(i => <li><a href={`/${i.slug}`}>{i.title} — /{i.slug}</a></li>)}
+      {contents.map((p) => {
+        const slug = String(p.slug ?? p.id).toLowerCase();
+        return <li><a href={`/${slug}`}>{p.title ?? slug} — /{slug}</a></li>;
+      })}
     </ul>
   </body>
 </html>

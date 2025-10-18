@@ -22,13 +22,7 @@ export default defineConfig({
   experimental: {
     integrations: true
   },
-  integrations: [vue(), mdx(), sitemap(), tailwind(), icon({
-      svgoOptions: {
-        plugins: [
-          { name: 'preset-default', params: { overrides: { cleanupIds: true } } },
-        ],
-      },
-  }), compress({
+  integrations: [vue(), mdx(), sitemap(), tailwind(), icon(), compress({
     css: true,
     html: false,
     js: true,

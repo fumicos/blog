@@ -1,8 +1,18 @@
-import { defineConfig } from 'astro/config';
+// astro.config.mjs
+import { defineConfig } from 'astro/config'
+import mdx from '@astrojs/mdx'
+import tailwind from '@astrojs/tailwind'
+// import icon from 'astro-icon' // 必要になったら有効化
 
 export default defineConfig({
-  output: 'static', // ← これだけでOK（Netlifyは静的サイトとして配信）
-});
+  output: 'static',              // まずはSSGで安定運用
+  integrations: [
+    mdx(),
+    tailwind({ applyBaseStyles: true }),
+    // icon(),                   // 使うなら有効化（import も外す）
+  ],
+})
+
 
 // import { defineConfig } from 'astro/config';
 // import mdx from '@astrojs/mdx';

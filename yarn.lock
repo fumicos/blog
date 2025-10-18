@@ -517,6 +517,13 @@
   dependencies:
     "@iconify/types" "*"
 
+"@iconify-json/fa@^1.2.2":
+  version "1.2.2"
+  resolved "https://registry.npmjs.org/@iconify-json/fa/-/fa-1.2.2.tgz"
+  integrity sha512-Rw0L97uO3W0Gy2rq4cM/TH3QjzuPuRca1F2steumZ57zOeheGQdiqo50O6KHjm+WgImmV92IFPUTU6eiaJsrTw==
+  dependencies:
+    "@iconify/types" "*"
+
 "@iconify-json/tabler@^1.2.23":
   version "1.2.23"
   resolved "https://registry.npmjs.org/@iconify-json/tabler/-/tabler-1.2.23.tgz"

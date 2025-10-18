@@ -6,6 +6,7 @@ import compress from "astro-compress";
 import robotsTxt from 'astro-robots-txt';
 import webmanifest from 'astro-webmanifest';
 import vue from "@astrojs/vue";
+import icon from 'astro-icon';
 
 // https://astro.build/config
 import netlify from "@astrojs/netlify/functions";
@@ -21,7 +22,13 @@ export default defineConfig({
   experimental: {
     integrations: true
   },
-  integrations: [vue(), mdx(), sitemap(), tailwind(), compress({
+  integrations: [vue(), mdx(), sitemap(), tailwind(), icon({
+      svgoOptions: {
+        plugins: [
+          { name: 'preset-default', params: { overrides: { cleanupIds: true } } },
+        ],
+      },
+  }), compress({
     css: true,
     html: false,
     js: true,

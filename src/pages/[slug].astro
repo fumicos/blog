@@ -1,19 +1,47 @@
 ---
-import { getPosts, getPostBySlug } from '../lib/microcms';
+import { getPosts } from '../lib/microcms';
 
+// すべての slug を列挙して静的ページを生成
 export async function getStaticPaths() {
-  const { contents, totalCount } = await getPosts(100, 0);
-  // （大量の記事がある場合は offset でループを回す）
-  return contents.map((p: any) => ({ params: { slug: p.slug }, props: { post: p } }));
+  // ← 記事が100件を超える可能性があるならページングで全件取得
+  const all: any[] = [];
+  let limit = 100, offset = 0;
+  // ループで全件取得（microCMS: totalCount あり）
+  // 量が少なければ1回取得でもOKです
+  // 例: const { contents } = await getPosts(100); return contents.map(...)
+  while (true) {
+    const { contents, totalCount } = await getPosts(limit, offset);
+    all.push(...contents);
+    offset += contents.length;
+    if (offset >= totalCount) break;
+  }
+
+  return all.map((p: any) => ({
+    // URL を小文字slugで固定（/Test → /test などのズレ防止）
+    params: { slug: String(p.slug).toLowerCase() },
+    // ページ本体に post を props で渡す（実行時fetch不要）
+    props: { post: p },
+  }));
 }
 
 const { post } = Astro.props;
-if (!post) throw Astro.redirect('/404');
+
+// 念のための守り：post が無ければ 404 に飛ばす
+if (!post) {
+  // Astro v4: redirect を返す
+  return Astro.redirect('/404');
+}
 ---
+
 <html lang="ja">
-  <head><meta charset="utf-8" /><title>{post.title}</title></head>
+  <head>
+    <meta charset="utf-8" />
+    <title>{post.title}</title>
+    <meta name="description" content={post.description ?? ''} />
+  </head>
   <body class="prose mx-auto px-4">
     <h1 class="mt-10">{post.title}</h1>
+    <!-- microCMSの本文がHTMLなら set:html で描画 -->
     <article class="mt-6" set:html={post.body} />
   </body>
 </html>

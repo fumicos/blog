@@ -2,7 +2,7 @@ astro.config.mjs
 import { defineConfig } from 'astro/config'
 import mdx from '@astrojs/mdx'
 import tailwind from '@astrojs/tailwind'
-// import icon from 'astro-icon' // 必要になったら有効化
+import icon from 'astro-icon' // 必要になったら有効化
 
 export default defineConfig({
   output: 'static',              // まずはSSGで安定運用
